@@ -8,5 +8,31 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@babel/runtime": "^7.4.4",
+    "axios": "^0.18.0",
+    "babel-loader": "^8.0.6",
+    "focus-trap-react": "^6.0.0",
+    "immutability-helper": "^3.0.0",
+    "react": "^16.8.6",
+    "react-aria-modal": "^4.0.0",
+    "react-dom": "^16.8.6",
+    "react-helmet-async": "^1.0.2",
+    "react-redux": "^7.0.3",
+    "react-router-breadcrumbs-hoc": "^3.2.0",
+    "react-router-dom": "^5.0.0",
+    "redux": "^4.0.1",
+    "redux-saga": "^1.0.2",
+    "regenerator-runtime": "^0.13.2",
+    "reselect": "^4.0.0",
+    "superstruct": "^0.6.1",
+    "uuid": "^3.3.2",
+    "webpack-cli": "^3.3.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.31.0",
+    "webpack-dev-server": "^3.3.1"
+  }
 }
