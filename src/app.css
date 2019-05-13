@@ -1,0 +1,33 @@
+#app {
+  display: grid;
+  grid-template-rows: 92px auto 92px;
+  grid-template-areas: none;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.mobile_display {
+  display: none;
+}
+
+.desktop_display {
+  display: block;
+}
+
+
+
+/* mobile */
+@media (max-width: 899px) {
+  #app {
+    grid-template-rows: 92px auto 237px;
+    max-width: 100vw;
+  }
+
+  .mobile_display {
+    display: block;
+  }
+
+  .desktop_display {
+    display: none;
+  }
+}
