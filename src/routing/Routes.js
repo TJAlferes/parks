@@ -21,11 +21,17 @@ import { Switch, Route } from 'react-router-dom';
 */
 const PlaygroundAndParkInspectionForm = lazy(() => import('../components/PlaygroundAndParkInspectionForm/PlaygroundAndParkInspectionForm'));
 
+import Home from '../components/Home/Home';
+
+
+
 const RoutesList = () => (
   <Suspense fallback={<div>Loading...</div>}>
     <Switch>
       {/*<AuthenticatedRoute path="/inspection-forms/playground-and-park" component={PlaygroundAndParkInspectionForm} />*/}
       <Route path="/inspection-forms/playground-and-park" component={PlaygroundAndParkInspectionForm} />
+
+      <Route path="/" component={Home} />
     </Switch>
   </Suspense>
 );

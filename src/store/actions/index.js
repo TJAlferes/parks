@@ -22,7 +22,6 @@ export {
   authManagerLogoutFailed
 } from './auth';
 export {
-  authCheckState,
   playgroundAndParkInspectionFormLoad,
   playgroundAndParkInspectionFormLoadSucceeded,
   playgroundAndParkInspectionFormLoadFailed,

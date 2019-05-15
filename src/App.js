@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import MobileHeader from './components/Header/mobile/MobileHeader';
+//import MobileHeader from './components/Header/mobile/MobileHeader';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
@@ -28,14 +28,15 @@ const App = props => {
     //<div id="app" {...props}>
     layout = (
       <div id="app">
-        <div>
+        {/*<div>
           <div className="mobile_display">
             <MobileHeader />
           </div>
           <div className="desktop_display">
             <Header />
           </div>
-        </div>
+        </div>*/}
+        <Header />
         <Main location={location}>
           <RoutesList />
         </Main>

@@ -10,14 +10,14 @@ module.exports = {
     //contentBase: path.join(__dirname, 'public'),
     historyApiFallback: true,
     overlay: {warnings: true, errors: true},
-    proxy: {
+    /*proxy: {
       '/': {
         target: 'http://localhost:3003',
         pathRewrite: {'^/' : ''},
         changeOrigin: true,
         secure: false
       }
-    }
+    }*/
   },
   devtool: 'cheap-module-eval-source-map', // or cheap-module-source-map ?
   entry: './src/index.js',

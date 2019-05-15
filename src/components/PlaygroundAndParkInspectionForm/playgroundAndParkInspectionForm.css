@@ -1,3 +1,42 @@
 .playground-and-park-inspection-form {
   
 }
+
+.playground-and-park-inspection-form h1 {
+  text-align: center;
+}
+
+.playground-and-park-inspection-form .pair,
+.playground-and-park-inspection-form .pair-supervisor {
+  padding: 6px 0;
+}
+
+.playground-and-park-inspection-form .pair label {
+  display: inline-block;
+  width: 99px;
+  padding-right: 2px;
+  font-size: 16px;
+  text-align: right;
+}
+
+.playground-and-park-inspection-form .pair-supervisor label {
+  display: inline-block;
+  width: 180px;
+  padding-right: 2px;
+  font-size: 16px;
+  text-align: right;
+}
+
+.playground-and-park-inspection-form .pair input,
+.playground-and-park-inspection-form .pair-supervisor input {
+  width: 240px;
+  height: 24px;
+}
+
+.playground-and-park-inspection-form .gridlist {
+  border: 2px solid #000;
+}
+
+.playground-and-park-inspection-form .gridlist div {
+
+}

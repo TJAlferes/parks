@@ -1,3 +1,7 @@
+/*
+account config
+*/
+export const ACCOUNT_CONFIG_CITY_NAME = 'ACCOUNT_CONFIG_CITY_NAME';
 
 
 
