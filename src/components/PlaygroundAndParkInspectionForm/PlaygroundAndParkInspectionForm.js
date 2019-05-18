@@ -4,78 +4,80 @@ import { connect } from 'react-redux';
 import './playgroundAndParkInspectionForm.css';
 
 const PlaygroundAndParkInspectionForm = props => {
-  const [ notes, setNotes ] = useState([
-    {row: 1, noteNumber: "", input: ""},
-    {row: 2, input: ""},
-    {row: 3, input: ""},
-    {row: 4, input: ""},
-    {row: 5, input: ""},
-    {row: 6, input: ""},
-    {row: 7, input: ""},
-    {row: 8, input: ""},
-    {row: 9, input: ""},
-    {row: 10, input: ""},
-    {row: 11, input: ""},
-    {row: 12, input: ""},
-    {row: 13, input: ""},
-    {row: 14, input: ""},
-    {row: 15, input: ""},
-    {row: 16, input: ""},
-    {row: 17, input: ""},
-    {row: 18, input: ""},
-    {row: 19, input: ""},
-    {row: 20, input: ""}
-  ]);
+  const [ notes, setNotes ] = useState({
+    1: {noteNumber: "1", comment: "crack in slide"},
+    2: {noteNumber: "", comment: ""},
+    3: {noteNumber: "", comment: ""},
+    4: {noteNumber: "", comment: ""},
+    5: {noteNumber: "", comment: ""},
+    6: {noteNumber: "", comment: ""},
+    7: {noteNumber: "", comment: ""},
+    8: {noteNumber: "", comment: ""},
+    9: {noteNumber: "", comment: ""},
+    10: {noteNumber: "", comment: ""},
+    11: {noteNumber: "", comment: ""},
+    12: {noteNumber: "", comment: ""},
+    13: {noteNumber: "", comment: ""},
+    14: {noteNumber: "", comment: ""},
+    15: {noteNumber: "", comment: ""},
+    16: {noteNumber: "", comment: ""},
+    17: {noteNumber: "", comment: ""},
+    18: {noteNumber: "", comment: ""},
+    19: {noteNumber: "", comment: ""},
+    20: {noteNumber: "", comment: ""}
+  });
 
-  // which way to go? remember you'll likely move into redux anyway
-  
-  const [ noteRow1, setNoteRow1 ] = useState({noteNumber: "", comment: ""});
-  const [ noteRow2, setNoteRow2 ] = useState({noteNumber: "", comment: ""});
-  const [ noteRow3, setNoteRow3 ] = useState({noteNumber: "", comment: ""});
-
-  const handleNotesSectionChange = (setter, e) => {
+  const handleNotesSectionChange = (row, e) => {
     if (e.target.name === 'noteNumber') {
-      [setter]({noteNumber: e.target.value});
+      setNotes(prevState => ({
+        ...prevState, [row]: {
+          ...prevState[[row]], noteNumber: e.target.value
+        }
+      }));
     } else if (e.target.name === 'comment') {
-      [setter]({comment: e.target.value});
+      setNotes(prevState => ({
+        ...prevState, [row]: {
+          ...prevState[[row]], comment: e.target.value
+        }
+      }));
     }
   };
 
   const renderRow = (description = '') => (
     <Fragment>
-      <div className="cell"><div className="content"><input className="radio" type="radio" /></div></div>
-      <div className="cell"><div className="content"><input className="radio" type="radio" /></div></div>
-      <div className="cell"><div className="content"><input className="radio" type="radio" /></div></div>
+      <div className="cell">
+        <div className="content">
+          <select className="mark" onChange={e => handleMarkChange(e)}>
+            <option value=""></option>
+            <option value="okay">V</option>
+            <option value="remedied">X</option>
+            <option value="workRequestWritten">O</option>
+          </select>
+        </div>
+      </div>
+      <div className="cell">
+        <div className="content">
+          <select className="mark" onChange={e => handleMarkChange(e)}>
+            <option value=""></option>
+            <option value="okay">V</option>
+            <option value="remedied">X</option>
+            <option value="workRequestWritten">O</option>
+          </select>
+        </div>
+      </div>
+      <div className="cell">
+        <div className="content">
+          <select className="mark" onChange={e => handleMarkChange(e)}>
+            <option value=""></option>
+            <option value="okay">V</option>
+            <option value="remedied">X</option>
+            <option value="workRequestWritten">O</option>
+          </select>
+        </div>
+      </div>
       <div className="cell"><div className="content"><span className="description">{description}</span></div></div>
       <div className="cell"><div className="content"><input className="note-number" type="input" /></div></div>
     </Fragment>
-  );
-
-  const renderNotesSection = (
-    <div className="notes-section">
-      <div className="notes-section__head-group">
-        <span className="notes-section__head">Note#</span>
-        <span className="notes-section__head">Comments/Repairs/Vandalism</span>
-      </div>
-
-      <div className="notes-section__cell-group">
-        {notes.map(note => (
-          <Fragment>
-            <div className="cell">
-              <div className="content">
-                <input
-                  className="notes-section__cell-group__note-number"
-                  type="input"
-                  value={note.noteNumber}
-                  onChange={e => handleNotesSectionNotesNumberChange(e)}
-                />
-              </div>
-            </div>
-            <div className="cell"><div className="content"><input className="notes-section__cell-group__input" type="input" value={note.input} /></div></div>
-          </Fragment>
-        ))}
-      </div>
-    </div>
   );
 
   return (
@@ -172,15 +174,71 @@ const PlaygroundAndParkInspectionForm = props => {
           <span className="head head-type-2">See note # under comments</span>
         </div>
         <hr className="black-hr" />
+
         <div className="cell-group">
           {renderRow("Bleachers/Player's Benches")}
           {renderRow('Baseball/Softball backstops and fencing')}
           {renderRow('Basketball board, rim & nets')}
           {renderRow('Basketball court surface')}
+          {renderRow('Tennis nets')}
+          {renderRow('Tennis court surface/fencing')}
+          {renderRow('Soccer goals/nets')}
+          {renderRow('Park-shelters/Gazebos')}
+          {renderRow('Park gates')}
+          {renderRow('Picnic tables (seats & tops)')}
+          {renderRow('Park benches')}
+          {renderRow('Trash containers')}
+          {renderRow('Drinking fountains')}
+          {renderRow('Grills')}
+          {renderRow('Park signs')}
+          {renderRow('Fencing/guardrail')}
+          {renderRow('Bike racks')}
+          {renderRow('Retaining wall')}
+          {renderRow('Light pole')}
+          {renderRow('Sidewalks')}
+          {renderRow('Parking bumpers / dumpster enclosures')}
+          {renderRow('Any tree branch below 7 feet?')}
+          {renderRow('Area clear of glass & litter?')}
+          {renderRow('Any vandalism/graffiti?')}
         </div>
       </div>
 
-      {renderNotesSection}
+      <div className="notes-section">
+        <div className="notes-section__head-group">
+          <span className="notes-section__head">Note#</span>
+          <span className="notes-section__head">Comments/Repairs/Vandalism</span>
+        </div>
+        <hr className="black-hr" />
+
+        <div className="notes-section__cell-group">
+          {/* do you need Object.assign({}, ...Object.keys etc.) here? */}
+          {console.log(Object.keys(notes))}
+          {Object.keys(notes).map((note, i) => (
+            <Fragment>
+              <div className="cell">
+                <div className="content">
+                  <input
+                    className="notes-section__cell-group__note-number"
+                    type="input"
+                    value={note.noteNumber}
+                    onChange={e => handleNotesSectionChange(i + 1, e)}
+                  />
+                </div>
+              </div>
+              <div className="cell">
+                <div className="content">
+                  <input
+                    className="notes-section__cell-group__comment"
+                    type="input"
+                    value={note.comment}
+                    onChange={e => handleNotesSectionChange(i + 1, e)}
+                  />
+                </div>
+              </div>
+            </Fragment>
+          ))}
+        </div>
+      </div>
 
       <div className="bottom-input-group">
         <div className="pair-supervisor"><label htmlFor="park">Reviewed by Supervisor:</label><input name="reviewedBySupervisor" type="text" /></div>
