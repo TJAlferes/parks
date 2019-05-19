@@ -27,5 +27,6 @@ export {
   playgroundAndParkInspectionFormLoadFailed,
   playgroundAndParkInspectionFormSave,
   playgroundAndParkInspectionFormSaveSucceeded,
-  playgroundAndParkInspectionFormSaveFailed
+  playgroundAndParkInspectionFormSaveFailed,
+  playgroundAndParkInspectionFormHandleInputChange
 } from './playgroundAndParkInspectionForm';

@@ -4,7 +4,13 @@ import * as actionTypes from './actionTypes';
 PlaygroundAndParkInspectionForm -- core functionality
 */
 
-//
+export const playgroundAndParkInspectionFormHandleInputChange = () => ({
+  type: actionTypes.PLAYGROUND_AND_PARK_INSPECTION_FORM_HANDLE_INPUT_CHANGE,
+  section,
+  row,
+  inputName,
+  inputValue
+});
 
 
 

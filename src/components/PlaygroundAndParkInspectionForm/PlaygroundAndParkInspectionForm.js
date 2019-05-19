@@ -1,32 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import './playgroundAndParkInspectionForm.css';
+import { playgroundAndParkInspectionFormHandleInputChange } from '../../store/actions/index';
 
 const PlaygroundAndParkInspectionForm = props => {
-  const [ notes, setNotes ] = useState({
-    1: {noteNumber: "1", comment: "crack in slide"},
-    2: {noteNumber: "", comment: ""},
-    3: {noteNumber: "", comment: ""},
-    4: {noteNumber: "", comment: ""},
-    5: {noteNumber: "", comment: ""},
-    6: {noteNumber: "", comment: ""},
-    7: {noteNumber: "", comment: ""},
-    8: {noteNumber: "", comment: ""},
-    9: {noteNumber: "", comment: ""},
-    10: {noteNumber: "", comment: ""},
-    11: {noteNumber: "", comment: ""},
-    12: {noteNumber: "", comment: ""},
-    13: {noteNumber: "", comment: ""},
-    14: {noteNumber: "", comment: ""},
-    15: {noteNumber: "", comment: ""},
-    16: {noteNumber: "", comment: ""},
-    17: {noteNumber: "", comment: ""},
-    18: {noteNumber: "", comment: ""},
-    19: {noteNumber: "", comment: ""},
-    20: {noteNumber: "", comment: ""}
-  });
-
+  /*
   const handleNotesSectionChange = (row, e) => {
     if (e.target.name === 'noteNumber') {
       setNotes(prevState => ({
@@ -42,6 +21,7 @@ const PlaygroundAndParkInspectionForm = props => {
       }));
     }
   };
+  */
 
   const renderRow = (description = '') => (
     <Fragment>
@@ -250,7 +230,24 @@ const PlaygroundAndParkInspectionForm = props => {
 }
 
 const mapStateToProps = state => ({
-  cityName: state.accountConfig.cityName
+  cityName: state.accountConfig.cityName,
+  park: state.playgroundAndParkInspectionForm.park,
+  inspectorDate: state.playgroundAndParkInspectionForm.inspectorDate,
+  inspector: state.playgroundAndParkInspectionForm.inspector,
+  supervisor: state.playgroundAndParkInspectionForm.supervisor,
+  supervisorDate: state.playgroundAndParkInspectionForm.supervisorDate,
+  surface: state.playgroundAndParkInspectionForm.surface,
+  structures: state.playgroundAndParkInspectionForm.structures,
+  swings: state.playgroundAndParkInspectionForm.swings,
+  slides: state.playgroundAndParkInspectionForm.slides,
+  whirls: state.playgroundAndParkInspectionForm.whirls,
+  springs: state.playgroundAndParkInspectionForm.springs,
+  misc: state.playgroundAndParkInspectionForm.misc,
+  notes: state.playgroundAndParkInspectionForm.notes
 });
 
-export default connect(mapStateToProps)(PlaygroundAndParkInspectionForm);
+const mapDispatchToProps = dispatch => ({
+  playgroundAndParkInspectionFormHandleInputChange: (section, row, inputName, inputValue) => dispatch(playgroundAndParkInspectionFormHandleInputChange(section, row, inputName, inputValue))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlaygroundAndParkInspectionForm);
